@@ -9,105 +9,24 @@
    </mat-toolbar>
    <mat-tab-group mat-align-tabs="center">
      <mat-tab label="Овощи">
-       <table mat-table [dataSource]="vegSource">
-
-         <!-- Position Column -->
-         <ng-container matColumnDef="position">
-           <mat-header-cell *matHeaderCellDef> №п. </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-         </ng-container>
-
-         <!-- Name Column -->
-         <ng-container matColumnDef="name">
-           <mat-header-cell *matHeaderCellDef> Наименование </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-         </ng-container>
-
-         <!-- Quantity Column -->
-         <ng-container matColumnDef="quantity">
-           <mat-header-cell *matHeaderCellDef> Количество, кг. </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
-         </ng-container>
-
-         <!-- Price Column -->
-         <ng-container matColumnDef="price">
-           <mat-header-cell *matHeaderCellDef> Цена </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-         </ng-container>
-
-         <!-- Action Column -->
-         <ng-container matColumnDef="action">
-           <mat-header-cell *matHeaderCellDef></mat-header-cell>
-           <mat-cell *matCellDef="let element">
-             <button mat-raised-button color="accent"  class="trash" >
-                   Delete
-             </button>
-           </mat-cell>
-         </ng-container>
-
-         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-       </table>
+      <food-table [dataSource]="vegSource"></food-table>
      </mat-tab>
      <mat-tab label="Фрукты">
-       <table mat-table [dataSource]="frutSource">
-         <!-- Position Column -->
-         <ng-container matColumnDef="position">
-           <mat-header-cell *matHeaderCellDef> №п. </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-         </ng-container>
-
-         <!-- Name Column -->
-         <ng-container matColumnDef="name">
-           <mat-header-cell *matHeaderCellDef> Наименование </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-         </ng-container>
-
-         <!-- Quantity Column -->
-         <ng-container matColumnDef="quantity">
-           <mat-header-cell *matHeaderCellDef> Количество, кг. </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
-         </ng-container>
-
-         <!-- Price Column -->
-         <ng-container matColumnDef="price">
-           <mat-header-cell *matHeaderCellDef> Цена </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-         </ng-container>
-
-         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-       </table>
+       <food-table [dataSource]="frutSource"></food-table>
      </mat-tab>
      <mat-tab label="Молоко">
-       <table mat-table [dataSource]="milkSource">
-         <!-- Position Column -->
-         <ng-container matColumnDef="position">
-           <mat-header-cell *matHeaderCellDef> №п. </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-         </ng-container>
-
-         <!-- Name Column -->
-         <ng-container matColumnDef="name">
-           <mat-header-cell *matHeaderCellDef> Наименование </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-         </ng-container>
-
-         <!-- Quantity Column -->
-         <ng-container matColumnDef="quantity">
-           <mat-header-cell *matHeaderCellDef> Количество </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
-         </ng-container>
-
-         <!--  Price Column -->
-         <ng-container matColumnDef="price">
-           <mat-header-cell *matHeaderCellDef> Цена </mat-header-cell>
-           <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-         </ng-container>
-
-         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-       </table>
+       <food-table [dataSource]="milkSource"></food-table>
      </mat-tab>
    </mat-tab-group>
  </div>
+<div class="form_warning" *ngIf="flag">
+  <h2 mat-dialog-title>Подтверждение</h2>
+  <mat-dialog-content>
+    Вы действительно хотите удалить выбранную строку? Восстановление записи будет невозможным.
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Отмена</button>
+    <button mat-button [mat-dialog-close]="true">Удалить</button>
+  </mat-dialog-actions>
+
+</div>

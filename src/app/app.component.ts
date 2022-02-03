@@ -1,16 +1,8 @@
-import { Component } from '@angular/core';
-
-export interface TableElement {
-  name: string;
-  position: number;
-  quantity: number;
-  price: number;
-
-
-}
+import {Component} from '@angular/core';
+import {TableElement} from "./food-table/food-table.component";
 
 const VAGETEBLES_DATA: TableElement[] = [
-  {position: 1, name: 'Картошка', quantity: 10, price: 430},
+  {position: 1, name: 'Картошка', quantity: 10, price: 430 },
   {position: 2, name: 'Морковка', quantity: 2, price: 82},
   {position: 3, name: 'Лук', quantity: 2, price: 46},
   {position: 4, name: 'Капуста', quantity: 1, price: 70},
@@ -48,7 +40,6 @@ const MILC_DATA: TableElement[] = [
   {position: 10, name: 'Айран', quantity: 1, price: 100},
 ];
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -56,11 +47,23 @@ const MILC_DATA: TableElement[] = [
 })
 export class AppComponent {
   title = 'fix';
-  displayedColumns = ['position', 'name', 'quantity', 'price', 'action'];
+
+  public flag=false;
 
   vegSource = VAGETEBLES_DATA;
   frutSource = FRUT_DATA;
   milkSource = MILC_DATA;
 
+  //public deleteValue() {
+    //начиная с элемента elementIndex удалить 1 элемент
+   // this.element.splice(elementIndex, 1);
+
+ // // }
+ //  //метод вызова диалогового окна
+ //  let dialogRef = dialog.open(Component, {
+ //    height: '400px',
+ //    width: '600px',
+ //
+ //  });
 }
 
