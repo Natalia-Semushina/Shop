@@ -19,14 +19,3 @@
      </mat-tab>
    </mat-tab-group>
  </div>
-<div class="form_warning" *ngIf="flag">
-  <h2 mat-dialog-title>Подтверждение</h2>
-  <mat-dialog-content>
-    Вы действительно хотите удалить выбранную строку? Восстановление записи будет невозможным.
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Отмена</button>
-    <button mat-button [mat-dialog-close]="true">Удалить</button>
-  </mat-dialog-actions>
-
-</div>

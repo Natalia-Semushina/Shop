@@ -37,6 +37,24 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <!--
+        length - Длина общего количества элементов, которые разбиваются на страницы.
+        pageSize - Количество элементов для отображения на странице.
+        pageSizeOptions - Набор предоставленных параметров размера страницы для отображения пользователю.
+        showFirstLastButtons - Показывать ли пользователю интерфейс первой/последней кнопки.
+        (page) - Событие, возникающее, когда пагинатор изменяет размер страницы или индекс страницы.
+    -->
+    <mat-paginator [length]="params?.paginationOption?.length"
+                   [pageSize]="params?paginationOption?.limit"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="true" (page)="paginatorClicked()">
+    </mat-paginator>
+    <!--<mat-paginator [length]="5"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="firstLastButton"
+                   (page)="onChangePage($event)">
+    </mat-paginator>-->
   </mat-table>
 </div>
 

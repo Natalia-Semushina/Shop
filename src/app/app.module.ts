@@ -30,6 +30,7 @@ import {FoodTableModule} from "./food-table/food-table.module";
         ReactiveFormsModule,
         MatDialogModule,
         FoodTableModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]

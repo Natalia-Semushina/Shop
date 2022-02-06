@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, InjectionToken, ViewChild} from '@angular/core';
 import {TableElement} from "./food-table/food-table.component";
+import {MatPaginator, MatPaginatorDefaultOptions} from "@angular/material/paginator";
+
 
 const VAGETEBLES_DATA: TableElement[] = [
   {position: 1, name: 'Картошка', quantity: 10, price: 430 },
@@ -39,6 +41,7 @@ const MILC_DATA: TableElement[] = [
   {position: 9, name: 'Тан', quantity: 2, price: 186},
   {position: 10, name: 'Айран', quantity: 1, price: 100},
 ];
+const MAT_PAGINATOR_DEFAULT_OPTIONS: InjectionToken<MatPaginatorDefaultOptions>;
 
 @Component({
   selector: 'app-root',
@@ -48,22 +51,12 @@ const MILC_DATA: TableElement[] = [
 export class AppComponent {
   title = 'fix';
 
-  public flag=false;
-
   vegSource = VAGETEBLES_DATA;
   frutSource = FRUT_DATA;
   milkSource = MILC_DATA;
 
-  //public deleteValue() {
-    //начиная с элемента elementIndex удалить 1 элемент
-   // this.element.splice(elementIndex, 1);
+  DefaultParams = MAT_PAGINATOR_DEFAULT_OPTIONS;
 
- // // }
- //  //метод вызова диалогового окна
- //  let dialogRef = dialog.open(Component, {
- //    height: '400px',
- //    width: '600px',
- //
- //  });
+
 }
 
