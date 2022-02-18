@@ -1,0 +1,30 @@
+.add-food-form-container{
+  padding: 4em;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+.add-food-form-container mat-card-title{
+  margin: 1em !important;
+}
+.add-food-form-container button{
+  margin-top: 10px !important;
+}
+
+mat-card-content {
+  bottom: 0;
+}
+form{
+  padding-top: 1em;
+}
+
+mat-form-field {
+  width: 90%;
+}
+button{
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 1em;
+
+}

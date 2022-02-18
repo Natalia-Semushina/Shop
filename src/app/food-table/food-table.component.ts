@@ -1,9 +1,7 @@
 
-import {AfterViewInit, Component, EventEmitter, Input, Output, ViewChild} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogContentComponent} from "../dialog/dialog-content";
-import {MatPaginator} from "@angular/material/paginator";
-import {PaginatorComponent} from "../paginator/paginator.component";
 
 
 
@@ -19,21 +17,18 @@ export interface TableElement {
 @Component({
   selector: 'food-table',
   templateUrl: './food-table.component.html',
+  styleUrls: ['./food-table.component.scss']
 
 })
-export class FoodTableComponent extends PaginatorComponent{
+export class FoodTableComponent {
   displayedColumns = ['position', 'name', 'quantity', 'price', 'action'];
 
+
   @Input() dataSource: TableElement[];
-  @Input() params: DefaultParams;
-
-  @Output() paramsChange: EventEmitter<any>;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
   constructor(private dialog:MatDialog) {
-  }
+   }
 
   openConfirmDialog(index: number){
     this.dialog.open(DialogContentComponent)
@@ -48,6 +43,10 @@ export class FoodTableComponent extends PaginatorComponent{
     }
     console.log('массив =', this.dataSource);
   }
+  ngOnInit() {
+  }
+
+
 
 }
 

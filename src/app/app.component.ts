@@ -1,7 +1,11 @@
-import {Component, InjectionToken, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {TableElement} from "./food-table/food-table.component";
-import {MatPaginator, MatPaginatorDefaultOptions} from "@angular/material/paginator";
 
+enum tableIndex {
+  vegetables,
+  frut,
+  milk
+}
 
 const VAGETEBLES_DATA: TableElement[] = [
   {position: 1, name: 'Картошка', quantity: 10, price: 430 },
@@ -41,7 +45,6 @@ const MILC_DATA: TableElement[] = [
   {position: 9, name: 'Тан', quantity: 2, price: 186},
   {position: 10, name: 'Айран', quantity: 1, price: 100},
 ];
-const MAT_PAGINATOR_DEFAULT_OPTIONS: InjectionToken<MatPaginatorDefaultOptions>;
 
 @Component({
   selector: 'app-root',
@@ -55,8 +58,24 @@ export class AppComponent {
   frutSource = FRUT_DATA;
   milkSource = MILC_DATA;
 
-  DefaultParams = MAT_PAGINATOR_DEFAULT_OPTIONS;
+  showStatus = false
 
+  selectedIndex = 0;
+
+  updateFoods(food: TableElement){
+    switch (this.selectedIndex){
+      case tableIndex.milk:
+        this.milkSource.push(food);
+        break;
+      case tableIndex.frut:
+        this.frutSource.push(food);
+        break;
+      case tableIndex.vegetables:
+        this.vegSource.push(food);
+        break;
+    }
+    this.showStatus =! this.showStatus;
+  }
 
 }
 

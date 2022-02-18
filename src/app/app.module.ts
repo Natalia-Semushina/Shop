@@ -9,29 +9,38 @@ import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {FoodTableModule} from "./food-table/food-table.module";
+import { AddFoodFormComponent } from './add-food-form/add-food-form.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddFoodFormComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatTabsModule,
-        MatTableModule,
-        MatIconModule,
-        MatCardModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatDialogModule,
-        FoodTableModule,
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatTableModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    FoodTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

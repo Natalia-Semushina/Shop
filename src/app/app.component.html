@@ -7,7 +7,12 @@
        Shop
      </span>
    </mat-toolbar>
-   <mat-tab-group mat-align-tabs="center">
+   <button mat-raised-button color="accent"
+           class="add-button"
+           (click)="showStatus=!showStatus"
+           *ngIf="!showStatus">Добавить продукт</button>
+   <app-add-food-form *ngIf="showStatus" (onAdd)="updateFoods($event)"></app-add-food-form>
+   <mat-tab-group mat-align-tabs="center" *ngIf="!showStatus" [(selectedIndex)]="selectedIndex">
      <mat-tab label="Овощи">
       <food-table [dataSource]="vegSource"></food-table>
      </mat-tab>
